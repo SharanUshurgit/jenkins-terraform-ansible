@@ -12,9 +12,7 @@ resource "aws_instance" "myFirstInstance" {
   tags= {
     Name = var.tag_name
   }
-}
-
-
+  
   provisioner "local-exec" {
     command = "echo ${aws_instance.myFirstInstance.public_dns} > inventory"
   }
@@ -26,8 +24,8 @@ resource "aws_instance" "myFirstInstance" {
   provisioner "local-exec" {
     command = "ansible all -m shell -a 'yum -y install httpd; systemctl restart httpd'"
   }
-
 }
+
 
 output "ip" {
   value = aws_instance.myFirstInstance.public_ip
