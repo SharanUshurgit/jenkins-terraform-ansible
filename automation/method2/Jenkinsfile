@@ -26,13 +26,13 @@ pipeline {
             }
          stage('Init') {
             steps {
-                sh "pwd;cd terraform/ ; terraform init"
+                sh "pwd;cd terraform/automation/method2/; terraform init"
             }
         }
 
         stage('Apply') {
             steps {
-                sh "pwd;cd terraform/ ; terraform apply -auto-approve"
+                sh "pwd;cd terraform/automation/method2/ ; terraform apply -auto-approve"
             }
         }
     }
