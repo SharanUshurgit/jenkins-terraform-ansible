@@ -1,15 +1,22 @@
-resource "aws_instance" "r100c96" {
-  ami               = "ami-0c2d06d50ce30b442"
-  instance_type     = "t2.micro"
-  availability_zone = "us-west-2"
-  key_name          = "jenkins"
-  user_data         = file("installcommand.sh")
-  tags = {
-    Name = "Terraform-diff-linux"
+provider "aws" {
+  region = var.aws_region
+}
+
+
+
+resource "aws_instance" "myFirstInstance" {
+  ami           = var.ami_id
+  key_name = var.key_name
+  instance_type = var.instance_type
+  security_groups= [var.security_group]
+  tags= {
+    Name = var.tag_name
   }
+}
+
 
   provisioner "local-exec" {
-    command = "echo ${aws_instance.r100c96.public_dns} > inventory"
+    command = "echo ${aws_instance.myFirstInstance.public_dns} > inventory"
   }
 
   provisioner "local-exec" {
@@ -23,9 +30,9 @@ resource "aws_instance" "r100c96" {
 }
 
 output "ip" {
-  value = aws_instance.r100c96.public_ip
+  value = aws_instance.myFirstInstance.public_ip
 }
 
 output "publicName" {
-  value = aws_instance.r100c96.public_dns
+  value = aws_instance.myFirstInstance.public_dns
 }
