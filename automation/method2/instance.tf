@@ -18,7 +18,7 @@ resource "aws_instance" "myFirstInstance" {
   }
 
   provisioner "local-exec" {
-    command = "sleep 350"
+    command = "sleep 150"
   }
 
   provisioner "local-exec" {
