@@ -2,7 +2,7 @@ resource "aws_instance" "r100c96" {
   ami               = "ami-0a9d27a9f4f5c0efc"
   instance_type     = "t2.micro"
   availability_zone = "ap-south-1b"
-  key_name          = "aws-exam-testing"
+  key_name          = "jenkins"
   user_data         = file("installcommand.sh")
   tags = {
     Name = "Terraform-diff-linux"
