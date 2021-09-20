@@ -1,7 +1,7 @@
 resource "aws_instance" "r100c96" {
-  ami               = "ami-0a9d27a9f4f5c0efc"
+  ami               = "ami-0c2d06d50ce30b442"
   instance_type     = "t2.micro"
-  availability_zone = "ap-south-1b"
+  availability_zone = "us-west-2"
   key_name          = "jenkins"
   user_data         = file("installcommand.sh")
   tags = {
