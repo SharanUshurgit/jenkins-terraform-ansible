@@ -23,6 +23,6 @@ variable "tag_name" {
     default     = "terraform_ip"
 }
 variable "ami_id" {
-    description = "AMI for Ubuntu Ec2 instance"
-    default     = "ami-0c2d06d50ce30b442"
+    description = "ansible host Ec2 instance"
+    default     = "ami-03b579c536c31826d"
 }
